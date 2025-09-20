@@ -25,6 +25,6 @@ class BreadthFirstSearch:
         # Initialize frontier with the root node
         # TODO Complete the rest!!
         # ...
-        print("Hola Mundo")
+        print("Hola")
 
         return NoSolution(reached)
