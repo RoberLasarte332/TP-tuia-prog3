@@ -39,7 +39,7 @@ class Grid:
             # "downright": (row + 1, col + 1),
         }
 
-        # Determine possilbe actions
+        # Determine possible actions
         possible_actions = []
 
         for action, (r, c) in action_pos_mapper.items():
@@ -109,5 +109,19 @@ class Grid:
         new_pos = self.result(pos, action)
         return self.grid[new_pos[0]][new_pos[1]].cost
 
+    def heuristic(self, pos: tuple[int, int]) -> int:
+        """
+        Estima la distancia desde la posicion al objetivo usando la distancia de Manhattan
+        
+        Args:
+            pos (tuple[int, int]): Cell position
+        
+        Returns:
+            int: Distancia estimada al objetivo
+        """
+        r, c = pos
+        end_r, end_c = self.end
+        return abs(r - end_r) + abs(c - end_c)
+    
     def __repr__(self) -> str:
         return f"Grid([[...], ...], {self.initial}, {self.end})"
