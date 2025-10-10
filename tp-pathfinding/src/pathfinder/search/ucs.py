@@ -4,7 +4,7 @@ from ..models.solution import NoSolution, Solution
 from ..models.node import Node
 
 
-class BusquedaCostoUniforme:
+class UniformCostSearch:
     @staticmethod
     def search(grid: Grid) -> Solution:
         """ Encuentra el camino entre dos puntos en una grilla usando Búsqueda de Costo Uniforme.

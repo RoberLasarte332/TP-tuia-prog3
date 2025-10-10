@@ -4,6 +4,9 @@ from enum import Enum
 class Search(Enum):
     """Enum for search algorithms"""
 
+    GO_UP = "GoUp"
+    GO_DOWN = "GoDown"
+    GO_LEFT = "GoLeft"
     GO_RIGHT = "GoRight"
     BREADTH_FIRST_SEARCH = "BFS"
     UNIFORM_COST_SEARCH = "UCS"

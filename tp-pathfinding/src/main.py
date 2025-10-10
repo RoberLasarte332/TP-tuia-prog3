@@ -85,7 +85,7 @@ algo_menu = Menu(
     children=[
         Button(
             surface=WINDOW,
-            text="Go Right",
+            text="Go Up",
             x=algorithm_btn.rect.x - 40,
             y=algorithm_btn.rect.y + algorithm_btn.height * 0,
             background_color=pygame.Color(*DARK_BLUE),
@@ -94,7 +94,7 @@ algo_menu = Menu(
         ),
         Button(
             surface=WINDOW,
-            text="Breadth First Search",
+            text="Go Down",
             x=algorithm_btn.rect.x - 40,
             y=algorithm_btn.rect.y + algorithm_btn.height * 1,
             background_color=pygame.Color(*DARK_BLUE),
@@ -103,7 +103,7 @@ algo_menu = Menu(
         ),
         Button(
             surface=WINDOW,
-            text="Uniform Cost Search",
+            text="Go Left",
             x=algorithm_btn.rect.x - 40,
             y=algorithm_btn.rect.y + algorithm_btn.height * 2,
             background_color=pygame.Color(*DARK_BLUE),
@@ -112,7 +112,7 @@ algo_menu = Menu(
         ),
         Button(
             surface=WINDOW,
-            text="Depth First Search",
+            text="Go Right",
             x=algorithm_btn.rect.x - 40,
             y=algorithm_btn.rect.y + algorithm_btn.height * 3,
             background_color=pygame.Color(*DARK_BLUE),
@@ -121,9 +121,36 @@ algo_menu = Menu(
         ),
         Button(
             surface=WINDOW,
-            text="Greedy Best First Search",
+            text="Breadth First Search",
             x=algorithm_btn.rect.x - 40,
             y=algorithm_btn.rect.y + algorithm_btn.height * 4,
+            background_color=pygame.Color(*DARK_BLUE),
+            foreground_color=pygame.Color(*WHITE),
+            font_size=20, outline=False
+        ),
+        Button(
+            surface=WINDOW,
+            text="Uniform Cost Search",
+            x=algorithm_btn.rect.x - 40,
+            y=algorithm_btn.rect.y + algorithm_btn.height * 5,
+            background_color=pygame.Color(*DARK_BLUE),
+            foreground_color=pygame.Color(*WHITE),
+            font_size=20, outline=False
+        ),
+        Button(
+            surface=WINDOW,
+            text="Depth First Search",
+            x=algorithm_btn.rect.x - 40,
+            y=algorithm_btn.rect.y + algorithm_btn.height * 6,
+            background_color=pygame.Color(*DARK_BLUE),
+            foreground_color=pygame.Color(*WHITE),
+            font_size=20, outline=False
+        ),
+        Button(
+            surface=WINDOW,
+            text="Greedy Best First Search",
+            x=algorithm_btn.rect.x - 40,
+            y=algorithm_btn.rect.y + algorithm_btn.height * 7,
             background_color=pygame.Color(*DARK_BLUE),
             foreground_color=pygame.Color(*WHITE),
             font_size=20, outline=False
@@ -132,7 +159,7 @@ algo_menu = Menu(
             surface=WINDOW,
             text="A* Search",
             x=algorithm_btn.rect.x - 40,
-            y=algorithm_btn.rect.y + algorithm_btn.height * 5,
+            y=algorithm_btn.rect.y + algorithm_btn.height * 8,
             background_color=pygame.Color(*DARK_BLUE),
             foreground_color=pygame.Color(*WHITE),
             font_size=20, outline=False

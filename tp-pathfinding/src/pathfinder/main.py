@@ -6,6 +6,9 @@ from .search.gbfs import GreedyBestFirstSearch
 from .search.bfs import BreadthFirstSearch
 from .search.dfs import DepthFirstSearch
 from .search.ucs import UniformCostSearch
+from .search.goup import GoUp
+from .search.godown import GoDown
+from .search.goleft import GoLeft
 from .search.goright import GoRight
 from .models.grid import Grid
 from .models.solution import Solution
@@ -15,6 +18,9 @@ from .models.search_types import Search
 SearchFunction = Callable[[Grid], Solution]
 
 SEARCH: dict[Search, SearchFunction] = {
+    Search.GO_UP: GoUp.search,
+    Search.GO_DOWN: GoDown.search,
+    Search.GO_LEFT: GoLeft.search,
     Search.GO_RIGHT: GoRight.search,    
     Search.BREADTH_FIRST_SEARCH: BreadthFirstSearch.search,
     Search.UNIFORM_COST_SEARCH: UniformCostSearch.search,

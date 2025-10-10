@@ -368,6 +368,9 @@ class Maze:
         """
         # String -> Search Algorithm
         mapper: dict[str, Search] = {
+            "Go Up": Search.GO_UP,
+            "Go Down": Search.GO_DOWN,
+            "Go Left": Search.GO_LEFT,
             "Go Right": Search.GO_RIGHT,
             "Breadth First Search": Search.BREADTH_FIRST_SEARCH,
             "Uniform Cost Search": Search.UNIFORM_COST_SEARCH,
