@@ -1,0 +1,19 @@
+# Dependencias del Proyecto Tateti - Algoritmo Minimax
+# 
+# Para instalar todas las dependencias, ejecutar:
+# python3 -m pip install -r requirements.txt
+#
+# Alternativamente (si pip está correctamente configurado):
+# pip install -r requirements.txt
+
+# Interfaz gráfica moderna con pygame
+pygame>=2.6.0
+
+# Dependencias opcionales para desarrollo y testing
+# (se instalan automáticamente con Python 3.10+)
+
+# typing - Para type hints (incluido en Python 3.10+)
+# unittest - Para pruebas unitarias (incluido en Python estándar)
+# copy - Para deepcopy (incluido en Python estándar)
+# random - Para estrategia aleatoria (incluido en Python estándar)
+# sys - Para manejo del sistema (incluido en Python estándar)
