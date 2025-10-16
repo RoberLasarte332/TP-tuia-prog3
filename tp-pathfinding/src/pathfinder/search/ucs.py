@@ -18,7 +18,7 @@ class UniformCostSearch:
         """
 
         # Inicializar el nodo raíz, punto de partida del problema
-        raiz = Node("", state=grid.inicial, cost=0, parent=None, action=None)
+        raiz = Node("", state=grid.initial, cost=0, parent=None, action=None)
 
         # llamamos a la cola de prioridad
         # se añade el nodo raíz a la frontera con prioridad 0
@@ -46,16 +46,16 @@ class UniformCostSearch:
                 # calculamos el nuevo costo acumulado para llegar al estado vecino
                 # Para cada acción, calcular el estado resultante y su costo
                 s_prima = grid.result(n.state, accion)
-                cost_ind = grid.individual_cost(n.state, accion)
+                individual_cost = grid.individual_cost(n.state, accion)
 
                 #Un nodo se descarta únicamente cuando su estado ya había sido alcanzado con un costo de camino menor o igual
-                if s_prima not in alcanzados or cost_ind < alcanzados[s_prima]:
+                if s_prima not in alcanzados or individual_cost < alcanzados[s_prima]:
                     # creamos un nuevo nodo para este camino prometedor
-                    n_prima = Node("", estado=s_prima, costo=cost_ind, padre=n, accion=accion)
+                    n_prima = Node("", state=s_prima, cost=individual_cost, parent=n, action=accion)
                     # actualizamos el diccionario 'alcanzados' con el nuevo costo
-                    alcanzados[s_prima] = cost_ind
+                    alcanzados[s_prima] = individual_cost
                     # añadimos el nuevo nodo a la frontera para que sea considerado en futuras iteraciones
-                    frontera.add(n_prima,cost_ind)
+                    frontera.add(n_prima,individual_cost)
         
         # Si el bucle termina (se quedo vacio) sin encontrar el objetivo 
         # devolvemos que no hay solucion
