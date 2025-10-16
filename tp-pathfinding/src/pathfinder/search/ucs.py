@@ -18,35 +18,35 @@ class UniformCostSearch:
         """
 
         # Inicializar el nodo raíz, punto de partida del problema
-        raiz = Node("", estado=grid.inicial, costo=0, padre=None, accion=None)
+        raiz = Node("", state=grid.inicial, cost=0, parent=None, action=None)
 
         # llamamos a la cola de prioridad
         # se añade el nodo raíz a la frontera con prioridad 0
         frontera = PriorityQueueFrontier()
-        frontera.add(raiz, raiz.costo)
+        frontera.add(raiz, raiz.cost)
 
         # creamos el diccioario donde se van a guardar los estados alcanzados
         # dict[Any, float]
         # colocamos el estado inicial con un costo 0
         alcanzados = {}
-        alcanzados[raiz.estado] = raiz.costo
+        alcanzados[raiz.state] = raiz.cost
 
         # mientras haya nodos que explorar 
         while not frontera.is_empty():
             #se va extrayendo de la frontera el nodo con menor costo
             n = frontera.pop()
             # comprobamos si es un estado obj
-            if grid.objective_test(n.estado):
+            if grid.objective_test(n.state):
                 # si lo es entonces encontramos la solucion optima en costo
                 return Solution(n, alcanzados)
         
             # sino expandimos el nodo actual
             # asumo que grid.acciones() retorna una lista de tuplas: (accion, estado_resultante, costo_individual)
-            for accion in grid.actions(n.estado):
+            for accion in grid.actions(n.state):
                 # calculamos el nuevo costo acumulado para llegar al estado vecino
                 # Para cada acción, calcular el estado resultante y su costo
-                s_prima = grid.result(n.estado, accion)
-                cost_ind = grid.individual_cost(n.estado, accion)
+                s_prima = grid.result(n.state, accion)
+                cost_ind = grid.individual_cost(n.state, accion)
 
                 #Un nodo se descarta únicamente cuando su estado ya había sido alcanzado con un costo de camino menor o igual
                 if s_prima not in alcanzados or cost_ind < alcanzados[s_prima]:
