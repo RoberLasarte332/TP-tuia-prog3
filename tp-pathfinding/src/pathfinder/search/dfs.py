@@ -30,7 +30,7 @@ class DepthFirstSearch:
             node = frontier.remove()
             
             # Check if the goal is reached
-            if grid.objetive_test(node.state):
+            if grid.objective_test(node.state):
                 return Solution(node, explored)
             
             # Expand node
