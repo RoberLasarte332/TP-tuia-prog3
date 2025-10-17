@@ -29,11 +29,11 @@ class DepthFirstSearch:
         while not frontier.is_empty():
             node = frontier.remove()
             
-            # Check if the goal is reached
+            
             if grid.objective_test(node.state):
                 return Solution(node, explored)
             
-            # Expand node
+            
             for action in grid.actions(node.state):
                 succesor = grid.result(node.state, action)
                 cost_step = grid.individual_cost(node.state, action)
