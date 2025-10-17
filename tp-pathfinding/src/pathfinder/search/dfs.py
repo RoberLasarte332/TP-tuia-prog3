@@ -23,7 +23,26 @@ class DepthFirstSearch:
         explored[root.state] = True
 
         # Initialize frontier with the root node
-        # TODO Complete the rest!!
-        # ...
+        frontier = StackFrontier()
+        frontier.add(root)
+        
+        while not frontier.is_empty():
+            node = frontier.remove()
+            
+            
+            if grid.objective_test(node.state):
+                return Solution(node, explored)
+            
+            
+            for action in grid.actions(node.state):
+                succesor = grid.result(node.state, action)
+                cost_step = grid.individual_cost(node.state, action)
+                g_cost = node.cost + cost_step
+                
+                if succesor not in explored:
+                    child = Node("", state=succesor, cost=g_cost, parent=node, action=action)
+                    explored[succesor] = True
+                    frontier.add(child)
+    
 
         return NoSolution(explored)
