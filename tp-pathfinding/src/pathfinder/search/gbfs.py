@@ -24,7 +24,7 @@ class GreedyBestFirstSearch:
 
         # Initialize frontier with the root node
         frontier = PriorityQueueFrontier()
-        frontier.add(root, GreedyBestFirstSearch.heuristic(grid.initial, grid.end))
+        frontier.add(root, grid.heuristic(grid.initial, grid.end))
         
         
         while not frontier.is_empty():
@@ -43,20 +43,9 @@ class GreedyBestFirstSearch:
                 
                 # Si el sucesor no se ha visitado o se encuentra un camino con menor costo, se agrega a la frontera.
                 if successor not in reached or g_cost < reached[successor]:
-                    child = Node(action, state=successor,  cost=g_cost, parent=node)
+                    child = Node("", state=successor,  cost=g_cost, parent=node, action=action)
                     reached[successor] = g_cost
-                    h_cost = GreedyBestFirstSearch.heuristic(successor, grid.end)
+                    h_cost = grid.heuristic(successor, grid.end)
                     frontier.add(child, h_cost)
                     
         return NoSolution(reached)
-    
-    
-    def heuristic(a, b):
-        """"Función heurística (distancia de Manhattan)"""
-        return abs(a[0] - b[0]) + abs(a[1] - b[1])
-        
-                    
-                    
-            
-        
-
