@@ -51,7 +51,7 @@ class GreedyBestFirstSearch:
     
     def heuristic(a, b):
         """"Función heurística (distancia de Manhattan)"""
-        return abs(a.row - b.row) + abs(a.col - b.col)
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
         
                     
                     
