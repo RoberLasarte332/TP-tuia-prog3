@@ -27,7 +27,7 @@ class DepthFirstSearch:
         frontier.add(root)
         
         while not frontier.is_empty():
-            node = frontier.pop()
+            node = frontier.remove()
             
             # Check if the goal is reached
             if grid.objetive_test(node.state):
@@ -40,7 +40,7 @@ class DepthFirstSearch:
                 g_cost = node.cost + cost_step
                 
                 if succesor not in explored:
-                    child = None("", state=succesor, cost=g_cost, parent=node, action=action)
+                    child = Node("", state=succesor, cost=g_cost, parent=node, action=action)
                     explored[succesor] = True
                     frontier.add(child)
     
