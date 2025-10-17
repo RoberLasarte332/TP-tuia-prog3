@@ -36,14 +36,16 @@ class GreedyBestFirstSearch:
                 return Solution(node, reached)
             
             # Expande el nodo actual (genera sucesores)
-            for action, succesor, step_cost in grid.expand(node.state):
+            for action in grid.actions(node.state):
+                successor = grid.result(node.state, action)
+                step_cost = grid.individual_cost(node.state, action)
                 g_cost = node.cost + step_cost
                 
                 # Si el sucesor no se ha visitado o se encuentra un camino con menor costo, se agrega a la frontera.
-                if succesor not in reached or g_cost < reached[succesor]:
-                    child = Node(action, state=succesor,  cost=g_cost, parent=node)
-                    reached[succesor] = g_cost
-                    h_cost = GreedyBestFirstSearch.heuristic(succesor, grid.objective_test)
+                if successor not in reached or g_cost < reached[successor]:
+                    child = Node(action, state=successor,  cost=g_cost, parent=node)
+                    reached[successor] = g_cost
+                    h_cost = GreedyBestFirstSearch.heuristic(successor, grid.objective_test)
                     frontier.add(child, h_cost)
                     
         return NoSolution(reached)
