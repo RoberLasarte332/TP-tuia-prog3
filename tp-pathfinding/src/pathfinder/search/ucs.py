@@ -49,7 +49,7 @@ class UniformCostSearch:
                 individual_cost = grid.individual_cost(n.state, accion)
                 c_prima = n.cost + individual_cost
                 #Un nodo se descarta únicamente cuando su estado ya había sido alcanzado con un costo de camino menor o igual
-                if s_prima not in alcanzados or individual_cost < alcanzados[s_prima]:
+                if s_prima not in alcanzados or c_prima < alcanzados[s_prima]:
                     # creamos un nuevo nodo para este camino prometedor
                     n_prima = Node("", state=s_prima, cost=c_prima, parent=n, action=accion)
                     # actualizamos el diccionario 'alcanzados' con el nuevo costo
