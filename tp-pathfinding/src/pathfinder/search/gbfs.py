@@ -24,7 +24,7 @@ class GreedyBestFirstSearch:
 
         # Initialize frontier with the root node
         frontier = PriorityQueueFrontier()
-        frontier.add(root, GreedyBestFirstSearch.heuristic(grid.initial, grid.objective))
+        frontier.add(root, GreedyBestFirstSearch.heuristic(grid.initial, grid.end))
         
         
         while not frontier.is_empty():
