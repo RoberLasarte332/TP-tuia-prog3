@@ -45,7 +45,7 @@ class GreedyBestFirstSearch:
                 if successor not in reached or g_cost < reached[successor]:
                     child = Node(action, state=successor,  cost=g_cost, parent=node)
                     reached[successor] = g_cost
-                    h_cost = GreedyBestFirstSearch.heuristic(successor, grid.objective_test)
+                    h_cost = GreedyBestFirstSearch.heuristic(successor, grid.end)
                     frontier.add(child, h_cost)
                     
         return NoSolution(reached)
