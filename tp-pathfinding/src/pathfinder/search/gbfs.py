@@ -24,7 +24,7 @@ class GreedyBestFirstSearch:
 
         # Initialize frontier with the root node
         frontier = PriorityQueueFrontier()
-        frontier.add(root, grid.heuristic(grid.initial, grid.end))
+        frontier.add(root, grid.heuristic(grid.initial))
         
         
         while not frontier.is_empty():
@@ -45,7 +45,7 @@ class GreedyBestFirstSearch:
                 if successor not in reached or g_cost < reached[successor]:
                     child = Node("", state=successor,  cost=g_cost, parent=node, action=action)
                     reached[successor] = g_cost
-                    h_cost = grid.heuristic(successor, grid.end)
+                    h_cost = grid.heuristic(successor)
                     frontier.add(child, h_cost)
                     
         return NoSolution(reached)
