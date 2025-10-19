@@ -93,5 +93,8 @@ def estrategia_minimax(tateti: Tateti, estado: List[List[str]]) -> Tuple[int, in
         Tuple[int, int]: Acción elegida (fila, columna)
     """
     if tateti.jugador(estado) == JUGADOR_MAX:
-        for accion in tateti.acciones(estado):
-            sucs = {accion:minimax_min(tateti, tateti.resultado(estado, accion))}
+        estado_siguiente = {accion: minimax_min(tateti, tateti.resultado(estado, accion)) for accion in tateti.acciones(estado)}
+        return max(estado_siguiente, key = estado_siguiente.get)
+    if tateti.jugador(estado) == JUGADOR_MIN:
+        estado_siguiente = {accion: minimax_max(tateti, tateti.resultado(estado, accion)) for accion in tateti.acciones(estado)}
+        return min(estado_siguiente, key = estado_siguiente.get)
