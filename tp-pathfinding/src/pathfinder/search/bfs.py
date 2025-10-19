@@ -27,18 +27,26 @@ class BreadthFirstSearch:
         frontier.add(root)
         # TODO Complete the rest!!
         # ...
+        
+        
+        #Bucle principal
         while not frontier.is_empty():
-            node = frontier.remove()
-
+            node = frontier.remove() #Saca el primer nodo agregado
+            
+            #Si llega al objetivo, devuelve la solución
             if grid.objective_test(node.state):
                 return Solution(node, reached)
             
+            
+            #Expande los sucesores del nodo actual
             for action in grid.actions(node.state):
                 succesor = grid.result(node.state, action)
 
+                #Si el sucesor no fue visitado, lo agrega a la frontera
                 if succesor not in reached:
                     son = Node("", succesor, cost=node.cost + grid.individual_cost(node.state, action), parent=node, action=action)
                     reached[succesor] = True
                     frontier.add(son)
 
+        #Si no se encuentra el objetivo, devuelve "Sin solución"
         return NoSolution(reached)
